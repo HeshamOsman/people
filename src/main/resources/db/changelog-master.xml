@@ -1,0 +1,16 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<include file="changelog/202002150001-add-user.xml"
+		relativeToChangelogFile="true" />
+	<include file="changelog/202002150002-add-role.xml"
+		relativeToChangelogFile="true" />
+	<!-- <include file="changelog/202002150003-add-user-role.xml"
+		relativeToChangelogFile="true" /> -->
+	<include file="changelog/202002150004-add-person.xml"
+		relativeToChangelogFile="true" />
+	<include file="changelog/202002150005-add-hobby.xml"
+		relativeToChangelogFile="true" />
+</databaseChangeLog>

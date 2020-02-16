@@ -1,0 +1,6 @@
+jwt:
+   secret: javainuse
+spring:
+   liquibase.change-log: classpath:/db/changelog-master.xml
+   
+              

@@ -1,0 +1,32 @@
+<!-- <databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<changeSet author="Hesham" id="202002150003">
+	
+	    <createTable tableName="user-role">
+				<column name="role_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="user_id" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey constraintName="PK_USER_ROLE"
+			tableName="user_role" columnNames="role_id, user_id" />
+		<addForeignKeyConstraint
+			baseColumnNames="role_id" baseTableName="user_role"
+			constraintName="user_role_FKEY_role_id" onDelete="CASCADE"
+		    referencedColumnNames="id"
+			referencedTableName="role" />
+		<addForeignKeyConstraint
+			baseColumnNames="user_id" baseTableName="user_role"
+			constraintName="user_role_FKEY_user_id" onDelete="CASCADE"
+		    referencedColumnNames="id"
+			referencedTableName="user" />
+		
+		
+	</changeSet>
+</databaseChangeLog> -->
