@@ -55,8 +55,8 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public Boolean deletePerson(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		personRepository.deleteById(id);
+		return true;
 	}
 
 	
