@@ -36,7 +36,7 @@ public class AccountController {
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody JwtRequest authenticationRequest) throws Exception {
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-		final UserDetails userDetails = userService.getUserByUserName(authenticationRequest.getUsername());
+		final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getUsername());
 		final String token = jwtUtil.generateToken(userDetails);
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
@@ -44,8 +44,6 @@ public class AccountController {
 	private void authenticate(String username, String password) throws Exception {
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-		} catch (DisabledException e) {
-			throw new Exception("USER_DISABLED", e);
 		} catch (BadCredentialsException e) {
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
