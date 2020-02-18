@@ -1,6 +1,7 @@
 package embl.recruitment.task.people.api.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import embl.recruitment.task.people.api.repository.PersonRepository;
 import embl.recruitment.task.people.api.security.SecurityUtils;
 import embl.recruitment.task.people.api.service.PersonService;
 import embl.recruitment.task.people.api.service.dto.PersonDTO;
+import static java.util.stream.Collectors.toList;
 
 @Service
 @Transactional
@@ -42,14 +44,13 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public PersonDTO getPerson(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Person> person = personRepository.findById(id);
+		return person.isEmpty()?null: modelMapper.map(person.get(),PersonDTO.class);
 	}
 
 	@Override
 	public List<PersonDTO> getAllPersons() {
-		// TODO Auto-generated method stub
-		return null;
+		return personRepository.findAll().stream().map(person -> modelMapper.map(person, PersonDTO.class)).collect(toList());
 	}
 
 	@Override

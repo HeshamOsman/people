@@ -1,10 +1,14 @@
 package embl.recruitment.task.people.api.rest.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +24,17 @@ public class PersonController {
 	private PersonService personService;
 	
 	@PostMapping("/person")
-	public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody PersonDTO personDTO){
-		final PersonDTO responseDTO = personService.createPerson(personDTO);
-		return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+	public ResponseEntity<PersonDTO> createPerson(@Valid @RequestBody PersonDTO personDTO){
+		return ResponseEntity.status(HttpStatus.CREATED).body(personService.createPerson(personDTO));
+	}
+	
+	@GetMapping("/person")
+	public ResponseEntity<List<PersonDTO>> getPersons(){
+		return ResponseEntity.status(HttpStatus.OK).body(personService.getAllPersons());
+	}
+	
+	@GetMapping("/person/{id}")
+	public ResponseEntity<?> getPerson(@PathVariable Long id){
+		return ResponseEntity.status(HttpStatus.OK).body(personService.getPerson(id));
 	}
 }
