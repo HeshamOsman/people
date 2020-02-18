@@ -30,16 +30,12 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public PersonDTO createPerson(PersonDTO personDTO) {
-		Person person = modelMapper.map(personDTO, Person.class);
-		person.getHobbies().stream().forEach(hoppy -> hoppy.setPerson(person));
-		person.setCreatedBy(securityUtils.getLoggedInUser());
-		return modelMapper.map(personRepository.save(person),PersonDTO.class);
+		return savePerson(personDTO);
 	}
 
 	@Override
 	public PersonDTO editPerson(PersonDTO personDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		return savePerson(personDTO);
 	}
 
 	@Override
@@ -59,6 +55,12 @@ public class PersonServiceImpl implements PersonService {
 		return true;
 	}
 
+	private PersonDTO savePerson(PersonDTO personDTO) {
+		Person person = modelMapper.map(personDTO, Person.class);
+		person.getHobbies().stream().forEach(hoppy -> hoppy.setPerson(person));
+		person.setCreatedBy(securityUtils.getLoggedInUser());
+		return modelMapper.map(personRepository.save(person),PersonDTO.class);
+	}
 	
 	
 	
