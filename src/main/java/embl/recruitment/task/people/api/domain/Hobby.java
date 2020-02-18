@@ -45,7 +45,7 @@ public class Hobby {
 		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
-
-		return Objects.equals(id, ((Hobby) obj).id);
+        Long objId = ((Hobby) obj).id;
+		return objId==null? false: Objects.equals(id, objId);
 	}
 }

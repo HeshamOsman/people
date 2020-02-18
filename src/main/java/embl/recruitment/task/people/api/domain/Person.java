@@ -67,8 +67,10 @@ public class Person {
 		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
+		
+		Long objId = ((Person) obj).id;
 
-		return Objects.equals(id, ((Person) obj).id);
+		return objId==null? false:Objects.equals(id,objId);
 	}
 	
 }

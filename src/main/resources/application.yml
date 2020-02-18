@@ -1,5 +1,13 @@
-jwt:
-   secret: javainuse
+people:
+   security:
+       jwt.secret: embi
+   users:
+       admin:
+          username: admin
+          password: 1234  
+       nonAdmin:    
+          username: user
+          password: 1111
 spring:
    liquibase.change-log: classpath:/db/changelog-master.xml
    

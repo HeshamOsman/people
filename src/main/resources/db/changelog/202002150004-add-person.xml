@@ -18,7 +18,7 @@
 			</column>
 			<column name="age" type="int"/>
 			<column name="age_unit" type="varchar(50)"/>
-			<column name="favourite_coluor" type="varchar(50)"/>
+			<column name="favourite_colour" type="varchar(50)"/>
 			<column name="created_by" type="BIGINT"/>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="person"
