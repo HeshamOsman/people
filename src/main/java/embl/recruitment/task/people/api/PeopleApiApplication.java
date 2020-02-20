@@ -38,7 +38,7 @@ public class PeopleApiApplication {
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
 		userService.createUser(adminUsername, RoleEnum.ADMIN, adminPassword);
-		userService.createUser(nonAdminUsername, RoleEnum.ADMIN, nonAdminPassword);
+		userService.createUser(nonAdminUsername, RoleEnum.USER, nonAdminPassword);
 	}
 	
 	@Bean

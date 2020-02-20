@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import embl.recruitment.task.people.api.config.security.SecurityUtils;
 import embl.recruitment.task.people.api.domain.Person;
 import embl.recruitment.task.people.api.repository.PersonRepository;
-import embl.recruitment.task.people.api.security.SecurityUtils;
 import embl.recruitment.task.people.api.service.PersonService;
 import embl.recruitment.task.people.api.service.dto.PersonDTO;
 import static java.util.stream.Collectors.toList;

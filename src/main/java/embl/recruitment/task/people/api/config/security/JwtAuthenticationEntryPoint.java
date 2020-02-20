@@ -1,4 +1,4 @@
-package embl.recruitment.task.people.api.security;
+package embl.recruitment.task.people.api.config.security;
 
 import java.io.IOException;
 import java.io.Serializable;
