@@ -25,6 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private UserDetailsService jwtUserDetailsService;
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
+	
+	private static final String[] AUTH_WHITELIST = { "/api/authenticate","/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html",
+			"/webjars/**", "/api-docs/**", "/swagger-ui/**" };
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -50,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 // We don't need CSRF for this example
 		httpSecurity.csrf().disable()
 // dont authenticate this particular request
-				.authorizeRequests().antMatchers("/api/authenticate").permitAll().
+				.authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll().
 // all other requests need to be authenticated
 				anyRequest().authenticated().and().
 // make sure we use stateless session; session won't be used to
