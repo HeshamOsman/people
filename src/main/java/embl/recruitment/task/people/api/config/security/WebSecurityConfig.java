@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 	
-	private static final String[] AUTH_WHITELIST = { "/api/authenticate","/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html",
+	private static final String[] AUTH_WHITELIST = { "/api/authenticate","/v3/api-docs/swagger-config","/v3/api-docs", "/swagger-resources/**", "/swagger-ui.html",
 			"/webjars/**", "/api-docs/**", "/swagger-ui/**" };
 
 	@Autowired

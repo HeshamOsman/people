@@ -41,7 +41,7 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public PersonDTO getPerson(Long id) {
 		Optional<Person> person = personRepository.findById(id);
-		return person.isEmpty()?null: modelMapper.map(person.get(),PersonDTO.class);
+		return person.isPresent()?modelMapper.map(person.get(),PersonDTO.class):null ;
 	}
 
 	@Override

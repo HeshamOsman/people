@@ -34,7 +34,7 @@ public class AccountController {
 	private UserService userService;
 
 	@PostMapping("/authenticate")
-	public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody JwtRequest authenticationRequest) throws Exception {
+	public ResponseEntity<JwtResponse> createAuthenticationToken(@Valid @RequestBody JwtRequest authenticationRequest) throws Exception {
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 		final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getUsername());
 		final String token = jwtUtil.generateToken(userDetails);
