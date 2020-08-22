@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	private JwtRequestFilter jwtRequestFilter;
 	
 	private static final String[] AUTH_WHITELIST = { "/api/authenticate","/v3/api-docs/swagger-config","/v3/api-docs", "/swagger-resources/**", "/swagger-ui.html",
-			"/webjars/**", "/api-docs/**", "/swagger-ui/**" };
+			"/webjars/**", "/api-docs/**", "/swagger-ui/**","/actuator/**" };
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

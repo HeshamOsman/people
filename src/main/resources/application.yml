@@ -11,5 +11,13 @@ people:
 spring:
    liquibase.change-log: classpath:/db/changelog-master.xml
 #   jackson.property-naming-strategy: SNAKE_CASE
+management:  endpoints:    web:      exposure:        include: "*"
+logbook:
+  exclude:
+    - /actuator/health
+   
+logging:
+   level:
+      org.zalando.logbook: TRACE                 
    
               
