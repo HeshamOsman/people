@@ -3,22 +3,21 @@ package embl.recruitment.task.people.api.rest.controller;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 
 
-import antlr.collections.List;
 import embl.recruitment.task.people.api.PeopleApiApplication;
 import embl.recruitment.task.people.api.repository.PersonRepository;
 import embl.recruitment.task.people.api.service.dto.HobbyDTO;
 import embl.recruitment.task.people.api.service.dto.PersonDTO;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = PeopleApiApplication.class)
 @AutoConfigureMockMvc
 public class PersonControllerIntegrationTest {

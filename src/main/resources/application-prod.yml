@@ -1,0 +1,13 @@
+people:
+  security:
+    jwt.secret: ${jwt-secret}
+  users:
+    admin:
+      username: ${admin-username}
+      password: ${admin-password}
+    nonAdmin:
+      username: ${nonadmin-username}
+      password: ${nonadmin-password}
+logging:
+  level:
+    org.zalando.logbook: TRACE
